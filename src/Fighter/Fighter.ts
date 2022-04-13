@@ -1,12 +1,15 @@
 import Energy from '../Energy';
 
-export default interface Fighter {
+export interface FighterAttributes {
   lifePoints: number;
   strength: number;
   defense: number;
   energy?: Energy;
-  attack(enemy: Fighter): void;
-  special(enemy: Fighter): void;
+}
+
+export default interface Fighter extends FighterAttributes {
+  attack(enemy: Fighter | FighterAttributes): void;
+  special(enemy: Fighter | FighterAttributes): void;
   levelUp(): void;
   receiveDamage(attackPoints: number): void;
 }
