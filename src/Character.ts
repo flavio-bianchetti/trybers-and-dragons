@@ -17,9 +17,7 @@ export default class Character implements Fighter {
   constructor(name: string) {
     this._race = new Elf(name, 10);
     this._archetype = new Mage(name);
-    this._maxLifePoints = Number(
-      (Math.floor(this._race.maxLifePoints / 2)).toFixed(0),
-    );
+    this._maxLifePoints = this._race.maxLifePoints / 2;
     this._lifePoints = this._maxLifePoints;
     this._strength = getRandomInt(1, 10);
     this._defense = getRandomInt(1, 10);
