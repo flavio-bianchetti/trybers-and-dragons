@@ -11,27 +11,6 @@ export default class PVE extends Battle {
     this._opponents = opponents;
   }
 
-  //   private opponentsBattle(
-  //     player1: Fighter,
-  //     player2: Monster | Fighter | SimpleFighter,
-  //   ) {
-  //     while (player1.lifePoints > 0 && player2.lifePoints > 0) {
-  //       player1.attack(player2);
-  //       if (player1.lifePoints <= 0) break;
-  //       player2.attack(player1);
-  //     }
-  //     return this.player.lifePoints === -1 ? -1 : 1;
-  //   }
-
-  //   public fight(): number {
-  //     let result = -1;
-  //     for (let index = 0; index < this._opponents.length; index += 1) {
-  //       result = this.opponentsBattle(this.player, this._opponents[index]);
-  //       if (result === -1) break;
-  //     }
-  //     return result;
-  //   }
-
   public fight(): number {
     this._opponents.forEach((opponent) => {
       while (this.player.lifePoints > 0 && opponent.lifePoints > 0) {
@@ -40,6 +19,7 @@ export default class PVE extends Battle {
         opponent.attack(this.player);
       }
     });
+    // solução abaixo sugerida por @Pablo Rufat
     return super.fight();
   }
 }
